@@ -1,0 +1,13 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:po="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options">
+    
+    <SolidColorBrush x:Key="MainPrimaryColor" Color="{StaticResource Primary700}" po:Freeze="True" />
+    <SolidColorBrush x:Key="MainSecondColor" Color="{StaticResource Primary500}" po:Freeze="True" />
+    <SolidColorBrush x:Key="WhiteTextColor" Color="#FFFFFF" po:Freeze="True" />
+    <SolidColorBrush x:Key="BlackTextColor" Color="#212121" po:Freeze="True" />
+
+    <!--Footer color-->
+    <SolidColorBrush x:Key="FooterBackground" Color="#1E88E5" po:Freeze="True"/>
+
+</ResourceDictionary>
