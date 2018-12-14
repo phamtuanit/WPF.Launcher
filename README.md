@@ -1,6 +1,6 @@
 # WPF.Launcher
-Allow you make new WPF application faster.
-To make new application, you just develop your business logic based on MVVM.
+Allow you make new WPF application faster. This also supports Plug and Play.
+To make new application, you just develop your pluign based on MVVM and MEF framework.
 
 In this launcher, we used [Caliburn.Micro](http://materialdesigninxaml.net/) as MVVM framework.
 
