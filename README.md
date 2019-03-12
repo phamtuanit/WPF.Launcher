@@ -79,6 +79,10 @@ namespace BasicPlugin
 }
 
 ```
+
+![phamtuantech](/doc/images/example_ui.png)
+![phamtuantech](/doc/images/example_ui_menu.png)
+
 Finding me on [phamtuantech.com](https://phamtuantech.com/)
 # License
 [MIT](https://choosealicense.com/licenses/mit/)
