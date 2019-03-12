@@ -8,24 +8,15 @@ using System.ComponentModel.Composition;
 
 namespace BasicPlugin
 {
+    // Don't forget below attributes
     [Export(typeof(IPlugin))]
     [PartCreationPolicy(CreationPolicy.Shared)]
     public class BasicPlugin : PluginBase<BasicPlugin>
     {
-        /// <summary>
-        /// Gets or sets the name of the plugin.
-        /// </summary>
-        /// <value>
-        /// The name of the plugin.
-        /// </value>
-        public override string PluignName { get; set; } = "Hardware Simulator";
+        // Plugin name.
+        public override string PluignName { get; set; } = "Basic plugin";
 
-        /// <summary>
-        /// Gets or sets the plugin version.
-        /// </summary>
-        /// <value>
-        /// The plugin version.
-        /// </value>
+        // Plugin version.
         public override string PluginVersion { get; set; } = "1.0.0.0";
 
         /// <summary>
@@ -33,29 +24,33 @@ namespace BasicPlugin
         /// </summary>
         public override void InitPlugin()
         {
+            // Updating application title
+            this.AppManager.SetAppTitle("My Application");
+
+            // Show footer bar
+            this.FooterBarManager.IsDisplayFooterBar = true;
+            // Writing message at footer bar
+            this.FooterBarManager.SetMessage($"Plugin {this.PluignName} is initializing");
+
+
+            // LeftdownMenuViewModel is main view which hosts other views and supports left-menu as well
+            // You can replace LeftdownMenuViewModel by your view by calling this.AppManager.ShowMainUI(<your view model>);
             var mainViewModel = SimpleIoC.Get<LeftdownMenuViewModel>();
             this.AppManager.ShowMainUI(mainViewModel);
-            this.AppManager.SetAppTitle(this.PluignName);
 
-            // Register menu
+            // Register menu using for LeftdownMenuViewModel only
             mainViewModel.RegisterMenu(new MEF.Launcher.Platform.Menu.MenuItemEx
             {
-                Name = "IoT Device",
+                Name = "Basic Menu",
                 ClickAction = () =>
                 {
-                    mainViewModel.ActivateItem(IoC.Get<IoTViewModel>());
+                    // ExampleView will be displayed when user click onto this button <Basic Menu>
+                    mainViewModel.ActivateItem(IoC.Get<ExampleViewModel>());
                 }
             });
 
-            mainViewModel.RegisterMenu(new MEF.Launcher.Platform.Menu.MenuItemEx
-            {
-                Name = "Weighing Scale",
-                ClickAction = () =>
-                {
-                    mainViewModel.ActivateItem(IoC.Get<WeighingScaleSystemViewModel>());
-                }
-            });
 
+            // Writing message at status-bar
             this.FooterBarManager.SetMessage($"Plugin {this.PluignName} is initialized");
         }
 
@@ -64,8 +59,7 @@ namespace BasicPlugin
         /// </summary>
         public override void UninitPlugin()
         {
-            IoC.Get<IoTViewModel>()?.Stop();
-            IoC.Get<WeighingScaleSystemViewModel>()?.Stop();
+            // Do something here when application terminating
         }
     }
 }
