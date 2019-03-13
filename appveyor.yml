@@ -14,10 +14,10 @@ assembly_info:
   assembly_file_version: '{version}'
   assembly_informational_version: '{version}'
 before_build:
-- echo $(SOLUTION)
-- cmd: nuget restore $(SOLUTION) -verbosity detailed
+- echo $env:SOLUTION
+- cmd: nuget restore $env:SOLUTION -verbosity detailed
 build:
   verbosity: normal
-  project: $(SOLUTION)
+  project: $env:SOLUTION
 after_build:
 - ps: "$files = get-childitem -recurse -Filter *.nuspec ($file in $files)\n{\n     $nuspec = $file.FullName\n     Write-Host(\"Packing \" + $nuspec + \" package\")\n     nuget pack $nuspec -version $env:APPVEYOR_BUILD_VERSION -OutputDirectory \"nugets\"\n}"
