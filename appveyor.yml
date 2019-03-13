@@ -4,6 +4,7 @@ platform: Any CPU
 
 environment:
   SOLUTION: ./src/WPF.Launcher.sln
+  NUGET_REPO: ./nugets
   
 #install:
 #- cmd: git submodule update --init --recursive
@@ -19,6 +20,7 @@ assembly_info:
   assembly_informational_version: '{version}'
 before_build:
 - echo %SOLUTION%
+- cmd: mkdir %NUGET_REPO%
 - cmd: nuget restore %SOLUTION% -verbosity detailed
 build:
   verbosity: normal
