@@ -14,7 +14,8 @@ assembly_info:
   assembly_file_version: '{version}'
   assembly_informational_version: '{version}'
 before_build:
-- cmd: nuget restore
+- echo %project%
+- cmd: nuget restore %project% -verbosity detailed
 build:
   verbosity: normal
   project: src/MEF.Launcher.sln
