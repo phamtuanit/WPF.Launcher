@@ -1,6 +1,10 @@
 image: Visual Studio 2017
 configuration: Release
 platform: Any CPU
+
+environment:
+  SOLUTION: ./src/WPF.Launcher.sln
+  
 #install:
 #- cmd: git submodule update --init --recursive
 build_script:
@@ -14,10 +18,10 @@ assembly_info:
   assembly_file_version: '{version}'
   assembly_informational_version: '{version}'
 before_build:
-- echo $env:SOLUTION
-- cmd: nuget restore $env:SOLUTION -verbosity detailed
+- echo %SOLUTION%
+- cmd: nuget restore %SOLUTION% -verbosity detailed
 build:
   verbosity: normal
-  project: $env:SOLUTION
+  project: $(SOLUTION)
 after_build:
 - ps: "$files = get-childitem -recurse -Filter *.nuspec ($file in $files)\n{\n     $nuspec = $file.FullName\n     Write-Host(\"Packing \" + $nuspec + \" package\")\n     nuget pack $nuspec -version $env:APPVEYOR_BUILD_VERSION -OutputDirectory \"nugets\"\n}"
