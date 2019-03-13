@@ -11,7 +11,7 @@ environment:
 build_script:
 - cmd: MSBuild -restore /p:Configuration=Release /verbosity:minimal
 artifacts:
-- path: ./nugets/*.*
+- path: '**\*.nupkg'
 assembly_info:
   patch: true
   file: '**\AssemblyInfo.*'
