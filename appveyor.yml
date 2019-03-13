@@ -27,4 +27,4 @@ build:
   verbosity: normal
   project: $(SOLUTION)
 after_build:
-- ps: "$files = get-childitem -recurse -Filter *.nuspec \nforeach ($file in $files)\n{\n     $nuspec = $file.FullName\n     Write-Host(\"Packing \" + $nuspec + \" package\")\n     nuget pack $nuspec -version $env:APPVEYOR_BUILD_VERSION -OutputDirectory \"./nugets\"\n}"
+- ps: "$files = get-childitem -recurse -Filter *.nuspec\nforeach ($file in $files)\n{\n     $nuspec = $file.FullName\n     Write-Host(\"Packing \" + $nuspec + \" package\")\n     nuget pack $nuspec -version $env:APPVEYOR_BUILD_VERSION -OutputDirectory \"./nugets\"\n}"
