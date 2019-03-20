@@ -2,15 +2,15 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>MEF.Launcher</id>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
     <authors>Tuan Pham</authors>
     <owners>Tuan Pham</owners>
     <repository type="git" url="https://github.com/phamtuanit/WPF.Launcher" />
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Defining WPF Launcher based on MEF and MaterialDesign</description>
-    <releaseNotes>Upgradeted PropertyChanged.Fody</releaseNotes>
+    <releaseNotes>Upgradeted PropertyChanged.Fody and corect PropertyChanged implementation</releaseNotes>
     <copyright>Copyright 2018</copyright>
-    <tags>1.0.4</tags>
+    <tags>1.0.5</tags>
 	<license type="expression">MIT</license>
     <dependencies>
       <dependency id="Caliburn.Micro" version="3.2.0" />
