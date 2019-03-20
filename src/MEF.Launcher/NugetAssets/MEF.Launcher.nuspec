@@ -5,6 +5,7 @@
     <version>1.0.4</version>
     <authors>Tuan Pham</authors>
     <owners>Tuan Pham</owners>
+    <repository type="git" url="https://github.com/phamtuanit/WPF.Launcher" />
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Defining WPF Launcher based on MEF and MaterialDesign</description>
     <releaseNotes>Upgradeted PropertyChanged.Fody</releaseNotes>

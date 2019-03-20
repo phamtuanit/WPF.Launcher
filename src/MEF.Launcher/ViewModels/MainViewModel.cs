@@ -11,6 +11,7 @@
     using System.ComponentModel;
 
     [Export]
+    [PartCreationPolicy(CreationPolicy.Shared)]
     public class MainViewModel : INotifyPropertyChanged
     {
         #region Constants
@@ -31,12 +32,12 @@
 
         #endregion
 
+        #region Event
+
         /// <summary>
         /// Implement INotifyPropertyChanged
         /// </summary>
         public virtual event PropertyChangedEventHandler PropertyChanged;
-
-        #region
 
         #endregion
 

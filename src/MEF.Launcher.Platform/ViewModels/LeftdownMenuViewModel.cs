@@ -1,7 +1,6 @@
 ﻿using Caliburn.Micro;
 using MEF.Launcher.Platform.Menu;
 using MEF.Launcher.Platform.Screen;
-using PropertyChanged;
 using System;
 using System.ComponentModel;
 using System.ComponentModel.Composition;
@@ -14,13 +13,8 @@ namespace MEF.Launcher.Platform.ViewModels
     [Export]
     [Export(typeof(ILeftSideMenuManager))]
     [PartCreationPolicy(CreationPolicy.Shared)]
-    public class LeftdownMenuViewModel : Conductor<ScreenBase>, Contract.IScreen, ILeftSideMenuManager, INotifyPropertyChanged
+    public class LeftdownMenuViewModel : Conductor<ScreenBase>, Contract.IScreen, ILeftSideMenuManager
     {
-        /// <summary>
-        /// Implement INotifyPropertyChanged
-        /// </summary>
-        public override event PropertyChangedEventHandler PropertyChanged;
-
         /// <summary>
         /// The logger
         /// </summary>
@@ -41,6 +35,8 @@ namespace MEF.Launcher.Platform.ViewModels
         /// The current menu item.
         /// </value>
         public MenuItemEx CurrentMenuItem { get; set; }
+
+        public object MainView { get; set; }
 
         /// <summary>
         /// Registers the menu.
