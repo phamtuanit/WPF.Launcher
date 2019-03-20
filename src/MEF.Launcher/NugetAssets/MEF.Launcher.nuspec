@@ -7,9 +7,9 @@
     <owners>Tuan Pham</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Defining WPF Launcher based on MEF and MaterialDesign</description>
-    <releaseNotes>Initalize project.</releaseNotes>
+    <releaseNotes>Upgradeted PropertyChanged.Fody</releaseNotes>
     <copyright>Copyright 2018</copyright>
-    <tags>Upgradeted PropertyChanged.Fody</tags>
+    <tags>1.0.4</tags>
 	<license type="expression">MIT</license>
     <dependencies>
       <dependency id="Caliburn.Micro" version="3.2.0" />
