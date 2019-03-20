@@ -1,14 +1,18 @@
 ﻿using MEF.Launcher.Contract;
-using PropertyChanged;
+using System.ComponentModel;
 using System.ComponentModel.Composition;
 
 namespace MEF.Launcher.ViewModels
 {
     [Export(typeof(IFooterBarManager))]
     [PartCreationPolicy(CreationPolicy.Shared)]
-    [ImplementPropertyChanged]
-    public class FooterBarViewModel : IFooterBarManager
+    public class FooterBarViewModel : IFooterBarManager, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Implement INotifyPropertyChanged
+        /// </summary>
+        public virtual event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Gets or sets a value indicating whether this instance is display footer bar.
         /// </summary>

@@ -2,16 +2,8 @@
 
 namespace MEF.Launcher.Manager
 {
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
     using System.ComponentModel.Composition;
-    using System.Threading.Tasks;
-    using System.Windows;
-    using System.Windows.Controls;
     using Launcher.Contract.IoC;
-    using Launcher.Platform.Screen;
-    using MaterialDesignThemes.Wpf;
     using ViewModels;
     using ILog = log4net.ILog;
     using LogManager = log4net.LogManager;

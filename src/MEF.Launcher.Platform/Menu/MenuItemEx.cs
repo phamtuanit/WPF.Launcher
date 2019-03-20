@@ -1,11 +1,15 @@
-﻿using PropertyChanged;
-using System;
+﻿using System;
+using System.ComponentModel;
 
 namespace MEF.Launcher.Platform.Menu
 {
-    [ImplementPropertyChanged]
-    public class MenuItemEx
+    public class MenuItemEx : INotifyPropertyChanged
     {
+        /// <summary>
+        /// Implement INotifyPropertyChanged
+        /// </summary>
+        public virtual event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Gets or sets the name.
         /// </summary>

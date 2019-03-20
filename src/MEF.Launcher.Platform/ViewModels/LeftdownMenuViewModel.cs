@@ -3,6 +3,7 @@ using MEF.Launcher.Platform.Menu;
 using MEF.Launcher.Platform.Screen;
 using PropertyChanged;
 using System;
+using System.ComponentModel;
 using System.ComponentModel.Composition;
 using System.Linq;
 using ILog = log4net.ILog;
@@ -13,9 +14,13 @@ namespace MEF.Launcher.Platform.ViewModels
     [Export]
     [Export(typeof(ILeftSideMenuManager))]
     [PartCreationPolicy(CreationPolicy.Shared)]
-    [ImplementPropertyChanged]
-    public class LeftdownMenuViewModel : Conductor<ScreenBase>, Contract.IScreen, ILeftSideMenuManager
+    public class LeftdownMenuViewModel : Conductor<ScreenBase>, Contract.IScreen, ILeftSideMenuManager, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Implement INotifyPropertyChanged
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// The logger
         /// </summary>

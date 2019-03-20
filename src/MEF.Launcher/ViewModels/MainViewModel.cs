@@ -5,17 +5,13 @@
     using Contract;
     using MEF.Launcher.Contract.IoC;
     using MEF.Launcher.Manager;
-    using log4net;
     using ILog = log4net.ILog;
     using LogManager = log4net.LogManager;
-    using PropertyChanged;
-    using Launcher.Platform.Screen;
     using System.Threading.Tasks;
-    using static System.Net.Mime.MediaTypeNames;
+    using System.ComponentModel;
 
     [Export]
-    [ImplementPropertyChanged]
-    public class MainViewModel : PropertyChangedBase
+    public class MainViewModel : INotifyPropertyChanged
     {
         #region Constants
 
@@ -26,8 +22,6 @@
 
         #endregion
 
-        #region Properties
-
         #region Variables
 
         /// <summary>
@@ -36,6 +30,17 @@
         private static readonly ILog Logger = LogManager.GetLogger(typeof(MainViewModel));
 
         #endregion
+
+        /// <summary>
+        /// Implement INotifyPropertyChanged
+        /// </summary>
+        public virtual event PropertyChangedEventHandler PropertyChanged;
+
+        #region
+
+        #endregion
+
+        #region Properties
 
         /// <summary>
         /// Gets or sets the application title.
@@ -79,15 +84,17 @@
         /// <summary>
         /// Called when an attached view's Loaded event fires.
         /// </summary>
-        /// <param name="view">The view</param>
-        public void DoViewLoaded()
+        public virtual void DoViewLoaded()
         {
             Logger.Info("---------------------------------------------------------------------");
             Logger.Info("------------------------ Main UI is loaded --------------------------");
             Task.Run(() => this.pluginManager.LoadPlugin());
         }
 
-        public void Closing()
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual void Closing()
         {
             this.pluginManager.UnloadPlugin();
         }
@@ -96,14 +103,16 @@
         /// Activates the item.
         /// </summary>
         /// <param name="viewModel">The view model.</param>
-        public void Activate(Launcher.Contract.IScreen viewModel)
+        public virtual void Activate(Launcher.Contract.IScreen viewModel)
         {
-            this.OnUIThread(() =>
+            System.Action showingViewAct = () =>
             {
                 var view = ViewLocator.LocateForModel(viewModel, null, null);
                 ViewModelBinder.Bind(viewModel, view, null);
                 this.ActivateItem = view;
-            });
+            };
+
+            showingViewAct.OnUIThread();
         }
     }
 }
