@@ -5,6 +5,7 @@ platform: Any CPU
 environment:
   SOLUTION: ./src/WPF.Launcher.sln
   NUGET_REPO: nugets
+  NUGET_VER: 1.0.4
   
 #install:
 #- cmd: git submodule update --init --recursive
@@ -27,5 +28,5 @@ build:
   verbosity: normal
   project: $(SOLUTION)
   publish_nuget: true
-on_success:
+after_build:
 - ps: "Set-Location -Path $env:APPVEYOR_BUILD_FOLDER\n $files = get-childitem -recurse -Filter \"*.nuspec\"\nforeach ($file in $files)\n{\n     $nuspec = $file.FullName\n     Write-Host(\"Packing \" + $nuspec + \" package\")\n     nuget pack $nuspec -version $env:APPVEYOR_BUILD_VERSION -OutputDirectory \"nugets\"\n}"
