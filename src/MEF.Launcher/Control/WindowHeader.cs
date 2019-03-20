@@ -1,5 +1,6 @@
 ﻿namespace MEF.Launcher.Control
 {
+    using System;
     using System.Windows;
     using System.Windows.Controls;
 
@@ -135,14 +136,7 @@
 
             this.maxButton.Click += (sender, args) =>
             {
-                if (this.RootWindow.WindowState == WindowState.Normal)
-                {
-                    this.RootWindow.WindowState = WindowState.Maximized;
-                }
-                else if (this.RootWindow.WindowState == WindowState.Maximized)
-                {
-                    this.RootWindow.WindowState = WindowState.Normal;
-                }
+                this.AdjustWindow();
             };
 
             this.closeButton.Click += (sender, args) =>
@@ -152,8 +146,30 @@
 
             this.mainBorder.MouseLeftButtonDown += (sender, args) =>
             {
-                this.RootWindow.DragMove();
+                if (args.ClickCount == 2)
+                {
+                    this.AdjustWindow();
+                }
+                else
+                {
+                    this.RootWindow.DragMove();
+                }
             };
+        }
+
+        /// <summary>
+        /// Maximize or restore window
+        /// </summary>
+        private void AdjustWindow()
+        {
+            if (this.RootWindow.WindowState == WindowState.Normal)
+            {
+                this.RootWindow.WindowState = WindowState.Maximized;
+            }
+            else if (this.RootWindow.WindowState == WindowState.Maximized)
+            {
+                this.RootWindow.WindowState = WindowState.Normal;
+            }
         }
 
         /// <summary>

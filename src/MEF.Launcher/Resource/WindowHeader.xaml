@@ -20,7 +20,7 @@
 
                 <!--Window commands-->
                 <StackPanel Orientation="Horizontal" Grid.Column="1"
-                            Height="{TemplateBinding Height}">
+                            x:Name="ButtonArea" Height="{TemplateBinding MinHeight}">
                     
                     <!--Minimum button-->
                     <Button x:Name="PART_Min"
@@ -126,6 +126,7 @@
     <Style x:Key="WindowHeaderTyle" TargetType="{x:Type Controls:WindowHeader}">
         <Setter Property="HorizontalAlignment" Value="Stretch"/>
         <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="MinHeight" Value="37.6"/>
         <Setter Property="Background" Value="{StaticResource MainPrimaryColor}"/>
         <Setter Property="Foreground" Value="{StaticResource WhiteTextColor}"/>
         <Setter Property="Template" Value="{StaticResource WindowHeaderTemplate}"/>
