@@ -83,11 +83,11 @@
     <Reference Include="MaterialDesignThemes.Wpf, Version=2.5.0.1205, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\MaterialDesignThemes.2.5.0.1205\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
-    <Reference Include="MEF.Launcher.Contract, Version=1.0.4.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\MEF.Launcher.1.0.4\Lib\MEF.Launcher.Contract.dll</HintPath>
+    <Reference Include="MEF.Launcher.Contract, Version=1.0.5.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MEF.Launcher.1.0.5\Lib\MEF.Launcher.Contract.dll</HintPath>
     </Reference>
-    <Reference Include="MEF.Launcher.Platform, Version=1.0.4.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\MEF.Launcher.1.0.4\Lib\MEF.Launcher.Platform.dll</HintPath>
+    <Reference Include="MEF.Launcher.Platform, Version=1.0.5.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MEF.Launcher.1.0.5\Lib\MEF.Launcher.Platform.dll</HintPath>
     </Reference>
     <Reference Include="PropertyChanged, Version=2.6.0.0, Culture=neutral, PublicKeyToken=ee3ee20bcf148ddd, processorArchitecture=MSIL">
       <HintPath>..\..\packages\PropertyChanged.Fody.2.6.0\lib\net452\PropertyChanged.dll</HintPath>
@@ -158,8 +158,8 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\..\packages\Fody.4.0.2\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Fody.4.0.2\build\Fody.targets'))" />
     <Error Condition="!Exists('..\..\packages\PropertyChanged.Fody.2.6.0\build\PropertyChanged.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\PropertyChanged.Fody.2.6.0\build\PropertyChanged.Fody.props'))" />
-    <Error Condition="!Exists('..\..\packages\MEF.Launcher.1.0.4\build\MEF.Launcher.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\MEF.Launcher.1.0.4\build\MEF.Launcher.targets'))" />
+    <Error Condition="!Exists('..\..\packages\MEF.Launcher.1.0.5\build\MEF.Launcher.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\MEF.Launcher.1.0.5\build\MEF.Launcher.targets'))" />
   </Target>
   <Import Project="..\..\packages\Fody.4.0.2\build\Fody.targets" Condition="Exists('..\..\packages\Fody.4.0.2\build\Fody.targets')" />
-  <Import Project="..\..\packages\MEF.Launcher.1.0.4\build\MEF.Launcher.targets" Condition="Exists('..\..\packages\MEF.Launcher.1.0.4\build\MEF.Launcher.targets')" />
+  <Import Project="..\..\packages\MEF.Launcher.1.0.5\build\MEF.Launcher.targets" Condition="Exists('..\..\packages\MEF.Launcher.1.0.5\build\MEF.Launcher.targets')" />
 </Project>

@@ -14,6 +14,10 @@ We also used some 3rd libraries for User Interface.
 
 
 # Making a plugin
+```powershell
+PM> Install-Package MEF.Launcher
+```
+
 After installing the nuget package, you need to create entry point class calling BasicPlugin like this.
 
 ```csharp
