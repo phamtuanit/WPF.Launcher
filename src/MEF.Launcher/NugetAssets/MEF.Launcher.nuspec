@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>MEF.Launcher</id>
+    <version>1.0.4</version>
+    <authors>Tuan Pham</authors>
+    <owners>Tuan Pham</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Defining WPF Launcher based on MEF and MaterialDesign</description>
+    <releaseNotes>Initalize project.</releaseNotes>
+    <copyright>Copyright 2018</copyright>
+    <tags>Upgradeted PropertyChanged.Fody</tags>
+	<license type="expression">MIT</license>
+    <dependencies>
+      <dependency id="Caliburn.Micro" version="3.2.0" />
+      <dependency id="Caliburn.Micro.Core" version="3.2.0" />
+      <dependency id="CommonServiceLocator" version="2.0.4" />
+      <dependency id="ControlzEx" version="3.0.2.4" />
+      <dependency id="log4net" version="2.0.8" />
+      <dependency id="MaterialDesignColors" version="1.1.3" />
+      <dependency id="MaterialDesignThemes" version="2.5.0.1205" />
+      <dependency id="PropertyChanged.Fody" version="2.6.0" />
+      <dependency id="Fody" version="4.0.2" />
+    </dependencies>
+    <references>
+      <reference file="MEF.Launcher.Platform.dll" />
+      <reference file="MEF.Launcher.Contract.dll" />
+    </references>
+  </metadata>
+  <files>
+    <file src="Lib/MEF.Launcher.exe" target="Lib" />
+    <file src="Lib/MEF.Launcher.exe.config" target="Lib" />
+    <file src="Lib/MEF.Launcher.Platform.dll" target="Lib" />
+    <file src="Lib/MEF.Launcher.Contract.dll" target="Lib" />
+    <file src="Lib/MEF.Launcher.Platform.xml" target="Lib" />
+    <file src="Lib/MEF.Launcher.Contract.xml" target="Lib" />
+    <file src="Tools/MEF.Launcher.targets" target="build" />
+  </files>
+</package>

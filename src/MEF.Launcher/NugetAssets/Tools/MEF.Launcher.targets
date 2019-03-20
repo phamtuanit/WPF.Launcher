@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003"> 
+  <PropertyGroup>
+  </PropertyGroup>
+  <Target Name="Configuration" AfterTargets="AfterBuild">
+    <Message Importance="high" Text="Copying MEF.Launcher.exe ..."/>
+    <CreateItem Include="$(MSBuildThisFileDirectory)..\Lib\MEF.Launcher.exe;$(MSBuildThisFileDirectory)..\Lib\MEF.Launcher.exe.config">
+      <Output TaskParameter="Include" ItemName="LibToMoveToLib" />
+    </CreateItem>
+    <Copy SourceFiles="@(LibToMoveToLib)" DestinationFolder="$(OutputPath)" />
+    <Message Importance="high" Text="Copying MEF.Launcher.exe ... DONE!"/>
+  </Target>
+</Project>
