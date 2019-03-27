@@ -9,6 +9,8 @@
     using LogManager = log4net.LogManager;
     using System.Threading.Tasks;
     using System.ComponentModel;
+    using System.Windows;
+    using System.Windows.Input;
 
     [Export]
     [PartCreationPolicy(CreationPolicy.Shared)]
@@ -83,6 +85,25 @@
         }
 
         /// <summary>
+        /// Activates the item.
+        /// </summary>
+        /// <param name="viewModel">The view model.</param>
+        public virtual void Activate(Launcher.Contract.IScreen viewModel)
+        {
+            System.Action showingViewAct = () =>
+            {
+                var view = ViewLocator.LocateForModel(viewModel, null, null);
+                ViewModelBinder.Bind(viewModel, view, null);
+                this.ActivateItem = view;
+            };
+
+            showingViewAct.OnUIThread();
+        }
+
+
+        #region Window event
+
+        /// <summary>
         /// Called when an attached view's Loaded event fires.
         /// </summary>
         public virtual void DoViewLoaded()
@@ -100,20 +121,6 @@
             this.pluginManager.UnloadPlugin();
         }
 
-        /// <summary>
-        /// Activates the item.
-        /// </summary>
-        /// <param name="viewModel">The view model.</param>
-        public virtual void Activate(Launcher.Contract.IScreen viewModel)
-        {
-            System.Action showingViewAct = () =>
-            {
-                var view = ViewLocator.LocateForModel(viewModel, null, null);
-                ViewModelBinder.Bind(viewModel, view, null);
-                this.ActivateItem = view;
-            };
-
-            showingViewAct.OnUIThread();
-        }
+        #endregion
     }
 }

@@ -1,6 +1,8 @@
 ﻿using MEF.Launcher.Contract;
 using System.ComponentModel;
 using System.ComponentModel.Composition;
+using System.Windows;
+using System.Windows.Input;
 
 namespace MEF.Launcher.ViewModels
 {
@@ -20,6 +22,11 @@ namespace MEF.Launcher.ViewModels
         /// <c>true</c> if this instance is display footer bar; otherwise, <c>false</c>.
         /// </value>
         public bool IsDisplayFooterBar { get; set; } = true;
+
+        /// <summary>
+        ///  Allow system display Copyright
+        /// </summary>
+        public bool IsDisplayCopyright { get; set; } = true;
 
         /// <summary>
         /// Gets or sets the message.
