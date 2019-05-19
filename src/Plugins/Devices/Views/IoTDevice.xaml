@@ -1,0 +1,123 @@
+﻿<UserControl x:Class="BasicPlugin.Views.IoTDevice"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BasicPlugin.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <GroupBox  Header="{Binding Id}" Style="{DynamicResource MaterialDesignCardGroupBox}">
+            <GroupBox.HeaderTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Wifi" />
+                        <TextBlock Margin="8,0,0,0" VerticalAlignment="Center"
+                                       Style="{StaticResource MaterialDesignSubheadingTextBlock}"
+                                       Text="{Binding}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </GroupBox.HeaderTemplate>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Border BorderBrush="LightGray" BorderThickness="0 0 0 1" Margin="0 10 0 1">
+                    <Grid Margin="0 8 0 8">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Input Channels" HorizontalAlignment="Left"/>
+                        <TextBlock Text="Output Channels" Grid.Column="1"
+                                   HorizontalAlignment="Right"/>
+                    </Grid>
+                </Border>
+                <Grid Grid.Row="1" Margin="1 15 1 2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid HorizontalAlignment="Left">
+                        <!--Input channels-->
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Ch 0"/>
+                            <ToggleButton Style="{StaticResource MaterialDesignSwitchAccentToggleButton}"
+                                          ToolTip="Ch 0" Margin="5 2 2 2"
+                                          IsChecked="{Binding InCh0.Status, UpdateSourceTrigger=PropertyChanged}"
+                                          HorizontalAlignment="Left" />
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Orientation="Horizontal">
+                            <TextBlock Text="Ch 1"/>
+                            <ToggleButton Style="{StaticResource MaterialDesignSwitchAccentToggleButton}"
+                              ToolTip="Ch 1"  Margin="5 2 2 2"
+                                          HorizontalAlignment="Left"
+                              IsChecked="{Binding InCh1.Status, UpdateSourceTrigger=PropertyChanged}" />
+                        </StackPanel>
+                        <StackPanel Grid.Row="2" Orientation="Horizontal">
+                            <TextBlock Text="Ch 2"/>
+                            <ToggleButton Style="{StaticResource MaterialDesignSwitchAccentToggleButton}"
+                                            ToolTip="Ch 2"  Margin="5 2 2 2"
+                                          HorizontalAlignment="Left"
+                              IsChecked="{Binding InCh2.Status, UpdateSourceTrigger=PropertyChanged}" />
+                        </StackPanel>
+                        <StackPanel Grid.Row="3" Orientation="Horizontal">
+                            <TextBlock Text="Ch 3"/>
+                            <ToggleButton Style="{StaticResource MaterialDesignSwitchAccentToggleButton}"
+                              ToolTip="Ch 3"  Margin="5 2 2 2"
+                                          HorizontalAlignment="Left"
+                              IsChecked="{Binding InCh3.Status, UpdateSourceTrigger=PropertyChanged}" />
+                        </StackPanel>
+                    </Grid>
+                    <Grid Grid.Column="1" HorizontalAlignment="Right">
+                        <!--Output channels-->
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Ch 0"/>
+                            <ToggleButton Style="{StaticResource MaterialDesignSwitchDarkToggleButton}"
+                                          ToolTip="Ch 0"  Margin="5 2 2 2"
+                                          IsChecked="{Binding OutCh0.Status, UpdateSourceTrigger=PropertyChanged}"
+                                          HorizontalAlignment="Right" />
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Orientation="Horizontal">
+                            <TextBlock Text="Ch 1"/>
+                            <ToggleButton Style="{StaticResource MaterialDesignSwitchDarkToggleButton}"
+                              ToolTip="Ch 1"  Margin="5 2 2 2"
+                                          HorizontalAlignment="Right"
+                              IsChecked="{Binding OutCh1.Status, UpdateSourceTrigger=PropertyChanged}" />
+                        </StackPanel>
+                        <StackPanel Grid.Row="2"  Orientation="Horizontal">
+                            <TextBlock Text="Ch 2"/>
+                            <ToggleButton Style="{StaticResource MaterialDesignSwitchDarkToggleButton}"
+                                        ToolTip="Ch 2"  Margin="5 2 2 2"
+                                          HorizontalAlignment="Right"
+                                        IsChecked="{Binding OutCh2.Status, UpdateSourceTrigger=PropertyChanged}" />
+                        </StackPanel>
+                        <StackPanel Grid.Row="3" Orientation="Horizontal">
+                            <TextBlock Text="Ch 3"/>
+                            <ToggleButton Style="{StaticResource MaterialDesignSwitchDarkToggleButton}"
+                                         ToolTip="Ch 3" Margin="5 2 2 2"
+                                          HorizontalAlignment="Right"
+                                        IsChecked="{Binding OutCh3.Status, UpdateSourceTrigger=PropertyChanged}" />
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</UserControl>
